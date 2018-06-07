@@ -14,8 +14,8 @@
       </div>
     </div>
     <% if (user_signed_in? && (current_user.id == comment.user_id)) %>
-       <%= link_to 'Видалити', [comment.shot, comment],
-                  method: :delete, class: "button is-danger", data: { confirm: 'Ви впевнені?' } %>
+       <%= link_to 'Remove', [comment.shot, comment],
+                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
     <% end %>
   </article>
 </div>
