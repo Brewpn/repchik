@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def create
   	@shot = Shot.find(params[:shot_id])
-  	@order = @shot.orders.create(comment_params) 
+  	@order = @shot.orders.create(order_params) 
   	@order.user_id = current_user.id if current_user
   	@order.save!
 

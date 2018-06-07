@@ -31,7 +31,6 @@
 					<div class="content">
 						<%= @shot.description %>
 					</div>
-				
 
 					<section class="comments">
 						<h2 class="subtitle is-5"><%= pluralize(@shot.comments.count, 'Comment') %></h2>
@@ -44,6 +43,20 @@
 							</div>
 						<% else %>
 							<div class="content"><%= link_to 'Sign in', new_user_session_path %> to leave a comment.</div>
+						<% end %>
+					</section>
+
+					<section class="comments">
+						<h2 class="subtitle is-5"><%= pluralize(@shot.orders.count, 'Order') %></h2>
+							<%= render @shot.orders %>
+						<hr />
+						<% if user_signed_in? %>
+							<div class="comment-form">
+								<h3 class="subtitle is-3">Send offer</h3>
+								<%= render 'orders/form' %>
+							</div>
+						<% else %>
+							<div class="content"><%= link_to 'Sign in', new_user_session_path %> to leave a order.</div>
 						<% end %>
 					</section>
 
