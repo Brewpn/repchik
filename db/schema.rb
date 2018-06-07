@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217161008) do
+ActiveRecord::Schema.define(version: 20180607185349) do
 
   create_table "comments", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20171217161008) do
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
     t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "email"
+    t.integer "shot_id"
+    t.integer "user_id"
   end
 
   create_table "shots", force: :cascade do |t|

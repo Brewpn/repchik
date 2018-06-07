@@ -1,0 +1,22 @@
+<% if (current_user.id == order.user_id) %>
+<div class="box">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-48x48 user-thumb">
+        <%= gravatar_image_tag(order.user.email.gsub('spam', 'mdeering'), alt: order.user.email, gravatar: { size: 48 }) %>
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= order.user.email %></strong>
+        </p>
+      </div>
+    </div>
+    <% if (user_signed_in? && (current_user.id == order.user_id)) %>
+       <%= link_to 'Remove', [order.shot, order],
+                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </article>
+</div>
+<% end %>

@@ -31,6 +31,7 @@
 					<div class="content">
 						<%= @shot.description %>
 					</div>
+				
 
 					<section class="comments">
 						<h2 class="subtitle is-5"><%= pluralize(@shot.comments.count, 'Comment') %></h2>
@@ -38,7 +39,7 @@
 						<hr />
 						<% if user_signed_in? %>
 							<div class="comment-form">
-								<h3 class="subtitle is-3">Залишити відгук</h3>
+								<h3 class="subtitle is-3">Leave a comment</h3>
 								<%= render 'comments/form' %>
 							</div>
 						<% else %>
